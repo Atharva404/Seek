@@ -273,12 +273,51 @@
                                -->
                             </div>
                         </li>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-warning" style="width: 13vw; height: 3vw; margin-top: 1vw;">Submit a Lost Item</button>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Lost Item
+                                </h6>
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                    <title>Test</title>
+
+                                </head>
+                                <form style="text-align: center; margin-bottom: 10px">
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px; margin-top: 10px;">
+                                        <label for="itemName">Item Name:</label>
+                                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+                                    </div>
+                                    <div class="form-group"style="margin-left: 10px; margin-right: 10px">
+                                        <label for="placeFound">Place Found:</label>
+                                        <input type="text" class="form-control" id="placeFound" placeholder="Enter place found">
+                                    </div>
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
+                                        <label for="description">Description:</label>
+                                        <textarea class="form-control" id="description" rows="3" placeholder="Enter item description"></textarea>
+                                    </div>
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
+                                        <label for="imageUpload">Image Upload:</label>
+                                        <input type="file" class="form-control-file" id="imageUpload">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" >Submit</button>
+                                </form>
+                                                                
+                            </div>
+                        </li>
                     
 
+                    
 
-                       
-                        <button type="button" class="btn btn-warning" style="width: 13vw; height: 3vw; margin-top: 1vw;">Submit a Lost Item</button>
-
+                
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
