@@ -63,7 +63,8 @@
                         <a class="collapse-item" href="#">Hawkins</a>
                         <a class="collapse-item" href="#">Honors College</a>
                         <a class="collapse-item" href="#">Owen</a>
-                        <a class="collapse-item" href="#">Wiley</a>
+        
+
                     </div>
                 </div>
             </li>
@@ -91,6 +92,17 @@
                         <a class="collapse-item" href="#">Honors College</a>
                         <a class="collapse-item" href="#">Owen</a>
                         <a class="collapse-item" href="#">Wiley</a>
+                        <a class="collapse-item" href="#">Lily Hall</a>
+                        <a class="collapse-item" href="#">Lawson</a>
+                        <a class="collapse-item" href="#">Physics Building</a>
+                        <a class="collapse-item" href="#">Wetherill Lab of Chemistry</a>
+                        <a class="collapse-item" href="#">Dudley Hall</a>
+                        <a class="collapse-item" href="#">Smith Hall</a>
+                        <a class="collapse-item" href="#">Class of 1954 Hall</a>
+                        <a class="collapse-item" href="#">Purdue Memorial Union</a>
+                        <a class="collapse-item" href="#">Rawls</a>
+                        <a class="collapse-item" href="#">MSEE</a>
+                        <a class="collapse-item" href="#">Armstrong</a>
                     </div>
                 </div>
             </li>
@@ -202,6 +214,85 @@
                                 </form>
                             </div>
                         </li>
+                        <!-- Nav Item - MAP -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-map-marker"></i>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Map
+                                </h6>
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                    <title>Dynamic Map</title>
+                                    <script async defer
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxXjRNPwsFojnor3z18QACDYVd8csS94
+                                        &callback=initMap">
+                                    </script>
+                                </head>
+                                <body>
+                                
+                                <div id="map" style="height: 400px;"></div>
+                                
+                                <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    center: { lat: 0, lng: 0 }, 
+                                    zoom: 8
+                                });
+                                if (navigator.geolocation) {
+                                    navigator.geolocation.getCurrentPosition(function (position) {
+                                        var userLocation = {
+                                            lat: position.coords.latitude,
+                                            lng: position.coords.longitude
+                                        };
+                                        map.setCenter(userLocation);
+                                        // add all item locations here
+                                        new google.maps.Marker({
+                                            position: userLocation,
+                                            map: map,
+                                            title: 'Your Location'
+                                        });
+                                    }, function () {
+                                        console.error('Error: The Geolocation service failed.');
+                                    });
+                                } else {
+                                    console.error('Error: Your browser doesn\'t support geolocation.');
+                                }
+
+                                // Stop propagation of click events within the map area
+                                google.maps.event.addDomListener(map.getDiv(), 'mousedown', function (e) {
+                                    e.stopPropagation();
+                                });
+
+                                // Close the dropdown only when clicking outside of it
+                                document.body.addEventListener('click', function (e) {
+                                var alertsDropdown = document.querySelector('.nav-item.dropdown.no-arrow.mx-1');
+
+                                if (!alertsDropdown.contains(e.target) && !document.getElementById('map').contains(e.target)) {
+                                    console.log('Element ID:', alertsDropdown.id);
+                                    alertsDropdown.classList.remove('show');
+                                }
+                            });
+                                });
+                                </script>
+
+<!-- ... (your existing code) ... -->
+
+                                
+                               <!--
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10555.637007250158!2d-86.92181137651029!3d40.43038878465542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8812e2b584587373%3A0x1720d78cbd5a1dce!2sFrance%20A.%20C%C3%B3rdova%20Recreational%20Sports%20Center!5e0!3m2!1sen!2sus!4v1705733159326!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                               
+                               -->
+                            </div>
+                        </li>
+                    
+
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
