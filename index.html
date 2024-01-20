@@ -48,21 +48,20 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Residential Orders</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="#">Cary Quad</a>
-                        <a class="collapse-item" href="#">Harrison</a>
-                        <a class="collapse-item" href="#">Hillenbrand</a>
-                        <a class="collapse-item" href="#">Shreve</a>
-                        <a class="collapse-item" href="#">Winifred Parker</a>
-                        <a class="collapse-item" href="#">Aspire</a>
-                        <a class="collapse-item" href="#">Meridith</a>
-                        <a class="collapse-item" href="#">Meridith South</a>
-                        <a class="collapse-item" href="#">Mccutcheon</a>
-                        <a class="collapse-item" href="#">Windsor</a>
-                        <a class="collapse-item" href="#">Tarkington</a>
-                        <a class="collapse-item" href="#">Hawkins</a>
-                        <a class="collapse-item" href="#">Honors College</a>
-                        <a class="collapse-item" href="#">Owen</a>
+                        <a class="collapse-item" href="#" onclick="filterByLocation('Cary Quad')">Cary Quad</a>
+                        <a class="collapse-item" href="#" onclick="filterByLocation('Harrison')">Harrison</a>
+                        <a class="collapse-item" href="#" onclick="filterByLocation('Hillenbrand')">Hillenbrand</a>
+                        <a class="collapse-item" href="#" onclick="filterByLocation('Shreve')">Shreve</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Winifred Parker')">Winifred Parker</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Aspire')">Aspire</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Meridith')">Meridith</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Meridith South')">Meridith South</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Mccutcheon')">Mccutcheon</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Windsor')">Windsor</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Tarkington')">Tarkington</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Hawkins')">Hawkins</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Honors College')">Honors College</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Owen')">Owen</a>
         
 
                     </div>
@@ -76,19 +75,19 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Campus Buildings</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="#">Lily Hall</a>
-                        <a class="collapse-item" href="#">Lawson</a>
-                        <a class="collapse-item" href="#">Physics Building</a>
-                        <a class="collapse-item" href="#">Wetherill Lab of Chemistry</a>
-                        <a class="collapse-item" href="#">Co Rec Wellness Center</a>
-                        <a class="collapse-item" href="#">Dudley Hall</a>
-                        <a class="collapse-item" href="#">Smith Hall</a>
-                        <a class="collapse-item" href="#">Class of 1954 Hall</a>
-                        <a class="collapse-item" href="#">Purdue Memorial Union</a>
-                        <a class="collapse-item" href="#">Rawls</a>
-                        <a class="collapse-item" href="#">MSEE</a>
-                        <a class="collapse-item" href="#">Armstrong</a>
+                        <a class="collapse-item" href="#" onclick="filterByLocation('Lily Hall')">Lily Hall</a>
+                        <a class="collapse-item" href="#" onclick="filterByLocation('Lawson')">Lawson</a>
+                        <a class="collapse-item" href="#" onclick="filterByLocation('Physics Building')">Physics Building</a>
+
+                        <a class="collapse-item" href="#" onclick="filterByLocation('Wetherill Lab of Chemistry')">Wetherill Lab of Chemistry</a>
+                        <a class="collapse-item" href="#" onclick="filterByLocation('Co Rec Wellness Center')">Co Rec Wellness Center</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Dudley Hall')">Dudley Hall</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Smith Hall')">Smith Hall</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Class of 1954 Hall')">Class of 1954 Hall</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Purdue Memorial Union')">Purdue Memorial Union</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Rawls')">Rawls</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('MSEE')">MSEE</a>
+                        <a class="collapse-item" href="#"onclick="filterByLocation('Armstrong')">Armstrong</a>
                     </div>
                 </div>
             </li>
@@ -369,43 +368,95 @@
                     </div>
                     
                     <script>
-                        // Fetch JSON data asynchronously
-                        fetch('items.json')
-                            .then(response => response.json())
-                            .then(data => {
-                                var productList = data.lostItems;
+                        // // Fetch JSON data asynchronously
+                        // fetch('items.json')
+                        //     .then(response => response.json())
+                        //     .then(data => {
+                        //         var productList = data.lostItems;
                 
-                                // Get the product container element
-                                var productContainer = document.getElementById("productContainer");
+                        //         // Get the product container element
+                        //         var productContainer = document.getElementById("productContainer");
                 
-                                // Loop through the product list and create HTML for each product
-                                productList.forEach(function(product) {
-                                    // Create HTML elements for the product card
-                                    var productCard = document.createElement("div");
-                                    productCard.className = "col-xl-3 col-md-6 mb-4";
-                                    productCard.innerHTML = `
-                                        <div class="card border-left-primary shadow h-100 py-2">
-                                            <div class="card-body">
-                                                <div class="row no-gutters align-items-center">
-                                                    <div class="col mr-2">
-                                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                            ${product.itemName}
-                                                        </div>
-                                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${product.additionalInfo}</div>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <img src="${product.imageURL}" style="height: 5vw; width: 5vw;">
-                                                    </div>
-                                                </div>
+                        //         // Loop through the product list and create HTML for each product
+                        //         productList.forEach(function(product) {
+                        //             // Create HTML elements for the product card
+                        //             var productCard = document.createElement("div");
+                        //             productCard.className = "col-xl-3 col-md-6 mb-4";
+                        //             productCard.innerHTML = `
+                        //                 <div class="card border-left-primary shadow h-100 py-2">
+                        //                     <div class="card-body">
+                        //                         <div class="row no-gutters align-items-center">
+                        //                             <div class="col mr-2">
+                        //                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        //                                     ${product.itemName}
+                        //                                 </div>
+                        //                                 <div class="h5 mb-0 font-weight-bold text-gray-800">${product.additionalInfo}</div>
+                        //                             </div>
+                        //                             <div class="col-auto">
+                        //                                 <img src="${product.imageURL}" style="height: 5vw; width: 5vw;">
+                        //                             </div>
+                        //                         </div>
+                        //                     </div>
+                        //                 </div>
+                        //             `;
+                
+                        //             // Append the product card to the container
+                        //             productContainer.appendChild(productCard);
+                        //         });
+                        //     })
+                        //     .catch(error => console.error('Error fetching data:', error));
+                          // Fetch JSON data asynchronously
+        fetch('items.json')
+            .then(response => response.json())
+            .then(data => {
+                var productList = data.lostItems;
+
+                // Get the product container element
+                var productContainer = document.getElementById("productContainer");
+
+                // Function to filter and display products based on location
+                window.filterByLocation = function (location) {
+                    // Clear existing product cards
+                    productContainer.innerHTML = "";
+
+                    // Filter products based on location
+                    var filteredProducts = productList.filter(function (product) {
+                        return product.foundLocation.toLowerCase().includes(location.toLowerCase());
+                    });
+
+                    // Create HTML for each filtered product
+                    filteredProducts.forEach(function (product) {
+                        // Create HTML elements for the product card
+                        var productCard = document.createElement("div");
+                        productCard.className = "col-xl-3 col-md-6 mb-4";
+                        productCard.innerHTML = `
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                ${product.itemName}
                                             </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${product.additionalInfo}</div>
+                                            <div class="h6 font-weight-bold">${product.foundLocation}</div>
                                         </div>
-                                    `;
-                
-                                    // Append the product card to the container
-                                    productContainer.appendChild(productCard);
-                                });
-                            })
-                            .catch(error => console.error('Error fetching data:', error));
+                                        <div class="col-auto">
+                                            <img src="${product.imageURL}" style="height: 5vw; width: 5vw;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+
+                        // Append the product card to the container
+                        productContainer.appendChild(productCard);
+                    });
+                };
+
+                // Initial display of all products
+                filterByLocation(''); // Display all products initially
+            })
+            .catch(error => console.error('Error fetching data:', error));
                     </script>
                     
                         <!-- Content Column -->
