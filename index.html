@@ -275,17 +275,13 @@
                                 document.body.addEventListener('click', function (e) {
                                 var alertsDropdown = document.querySelector('.nav-item.dropdown.no-arrow.mx-1');
 
-                                if (!alertsDropdown.contains(e.target) && !document.getElementById('map').contains(e.target)) {
-                                    console.log('Element ID:', alertsDropdown.id);
+                                if (!alertsDropdown.contains(e.target) && document.getElementById('map').contains(e.target)) {
+                                    console.log('Element ID:' + !alertsDropdown.contains(e.target) + !document.getElementById('map').contains(e.target));
                                     alertsDropdown.classList.remove('show');
                                 }
                             });
                                 });
                                 </script>
-
-<!-- ... (your existing code) ... -->
-
-                                
                                <!--
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10555.637007250158!2d-86.92181137651029!3d40.43038878465542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8812e2b584587373%3A0x1720d78cbd5a1dce!2sFrance%20A.%20C%C3%B3rdova%20Recreational%20Sports%20Center!5e0!3m2!1sen!2sus!4v1705733159326!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                               
                                -->
