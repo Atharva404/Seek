@@ -279,39 +279,32 @@
                                 <button type="button" class="btn btn-warning" style="width: 13vw; height: 3vw; margin-top: 1vw;">Submit a Lost Item</button>
                             </a>
                             <!-- Dropdown - Alerts -->
-                            
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
                                     Lost Item
                                 </h6>
-                                <head>
-                                    <meta charset="UTF-8">
-                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                    <title>Test</title>
-
-                                </head>
-                                <form style="text-align: center; margin-bottom: 10px">
+                                <form style="text-align: center; margin-bottom: 10px" onsubmit="submitLostItem(event)">
                                     <div class="form-group" style="margin-left: 10px; margin-right: 10px; margin-top: 10px;">
                                         <label for="itemName">Item Name:</label>
-                                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+                                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name" required>
                                     </div>
-                                    <script src="https://maps.googleapis.com/maps/api/js?key=https://maps.googleapis.com/maps/api/js?key=AIzaSyACxXjRNPwsFojnor3z18QACDYVd8csS94&libraries=places&callback=initMap"></script>
+                                    <!-- Include the Google Places API script -->
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script>
                                     <div class="form-group" style="margin-left: 15px; margin-right: 15px">
                                         <label for="placeFound">Place Found:</label>
-                                        <input type="text" class="form-control places-autocomplete" id="autocomplete" placeholder="Enter place found">
+                                        <input type="text" class="form-control places-autocomplete" id="autocomplete" placeholder="Enter place found" required>
                                     </div>
                                     <div class="form-group" style="margin-left: 10px; margin-right: 10px">
                                         <label for="description">Description:</label>
-                                        <textarea class="form-control" id="description" rows="3" placeholder="Enter item description"></textarea>
+                                        <textarea class="form-control" id="description" rows="3" placeholder="Enter item description" required></textarea>
                                     </div>
                                     <div class="form-group" style="margin-left: 10px; margin-right: 10px">
                                         <label for="imageUpload">Image Upload:</label>
-                                        <input type="file" class="form-control-file" id="imageUpload">
+                                        <input type="file" class="form-control-file" id="imageUpload" required>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" >Submit</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
-                                                                
                             </div>
                         </li>
                     
@@ -370,44 +363,6 @@
                     </div>
                     
                     <script>
-                        // // Fetch JSON data asynchronously
-                        // fetch('items.json')
-                        //     .then(response => response.json())
-                        //     .then(data => {
-                        //         var productList = data.lostItems;
-                
-                        //         // Get the product container element
-                        //         var productContainer = document.getElementById("productContainer");
-                
-                        //         // Loop through the product list and create HTML for each product
-                        //         productList.forEach(function(product) {
-                        //             // Create HTML elements for the product card
-                        //             var productCard = document.createElement("div");
-                        //             productCard.className = "col-xl-3 col-md-6 mb-4";
-                        //             productCard.innerHTML = `
-                        //                 <div class="card border-left-primary shadow h-100 py-2">
-                        //                     <div class="card-body">
-                        //                         <div class="row no-gutters align-items-center">
-                        //                             <div class="col mr-2">
-                        //                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        //                                     ${product.itemName}
-                        //                                 </div>
-                        //                                 <div class="h5 mb-0 font-weight-bold text-gray-800">${product.additionalInfo}</div>
-                        //                             </div>
-                        //                             <div class="col-auto">
-                        //                                 <img src="${product.imageURL}" style="height: 5vw; width: 5vw;">
-                        //                             </div>
-                        //                         </div>
-                        //                     </div>
-                        //                 </div>
-                        //             `;
-                
-                        //             // Append the product card to the container
-                        //             productContainer.appendChild(productCard);
-                        //         });
-                        //     })
-                        //     .catch(error => console.error('Error fetching data:', error));
-                          // Fetch JSON data asynchronously
         fetch('items.json')
             .then(response => response.json())
             .then(data => {
@@ -453,7 +408,56 @@
                         // Append the product card to the container
                         productContainer.appendChild(productCard);
                     });
+
                 };
+
+                
+                function submitLostItem(event) {
+                        console.log("Form submitted!"); 
+
+                        console.log("submitLostItem function called"); 
+                        event.preventDefault(); // Prevent the default form submission
+
+                        // Get form values
+                        var itemName = document.getElementById("itemName").value;
+                        var placeFound = document.getElementById("autocomplete").value;
+                        var description = document.getElementById("description").value;
+                        var imageUpload = document.getElementById("imageUpload").value;
+
+                        // Create HTML for the new product card
+                        var newProductCard = document.createElement("div");
+                        newProductCard.className = "col-xl-3 col-md-6 mb-4";
+                        newProductCard.innerHTML = `
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                ${itemName}
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${description}</div>
+                                            <div class="h6 font-weight-bold">${placeFound}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <img src="${imageUpload}" style="height: 5vw; width: 5vw;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+
+                        // Get the product container element
+                        var productContainer = document.getElementById("productContainer");
+
+                        // Append the new product card to the container
+                        productContainer.appendChild(newProductCard);
+
+                        // Clear the form after submission (optional)
+                        document.getElementById("itemName").value = "";
+                        document.getElementById("autocomplete").value = "";
+                        document.getElementById("description").value = "";
+                        document.getElementById("imageUpload").value = "";
+                    }
 
                 // Initial display of all products
                 filterByLocation(''); // Display all products initially
