@@ -306,14 +306,12 @@
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
-<<<<<<< Updated upstream
                         </li>
                     
 
                     
 
                 
-=======
                             <script>
                                 function submitLostItem(event) {
                         console.log("Form submitted!"); 
@@ -365,7 +363,6 @@
                             </script>
                         </li>
             
->>>>>>> Stashed changes
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
@@ -466,57 +463,7 @@
                 };
 
                 
-<<<<<<< Updated upstream
-                function submitLostItem(event) {
-                        console.log("Form submitted!"); 
-
-                        console.log("submitLostItem function called"); 
-                        event.preventDefault(); // Prevent the default form submission
-
-                        // Get form values
-                        var itemName = document.getElementById("itemName").value;
-                        var placeFound = document.getElementById("autocomplete").value;
-                        var description = document.getElementById("description").value;
-                        var imageUpload = document.getElementById("imageUpload").value;
-
-                        // Create HTML for the new product card
-                        var newProductCard = document.createElement("div");
-                        newProductCard.className = "col-xl-3 col-md-6 mb-4";
-                        newProductCard.innerHTML = `
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                ${itemName}
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${description}</div>
-                                            <div class="h6 font-weight-bold">${placeFound}</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="${imageUpload}" style="height: 5vw; width: 5vw;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-
-                        // Get the product container element
-                        var productContainer = document.getElementById("productContainer");
-
-                        // Append the new product card to the container
-                        productContainer.appendChild(newProductCard);
-
-                        // Clear the form after submission (optional)
-                        document.getElementById("itemName").value = "";
-                        document.getElementById("autocomplete").value = "";
-                        document.getElementById("description").value = "";
-                        document.getElementById("imageUpload").value = "";
-                    }
-
-=======
                 
->>>>>>> Stashed changes
                 // Initial display of all products
                 filterByLocation(''); // Display all products initially
             })
