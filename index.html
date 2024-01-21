@@ -329,7 +329,6 @@
                                     
                                     <script>
                                         function initAutocomplete() {
-                                            console.log("success perhaps");
                                             var searchInput = document.querySelector('input[name="search_input"]');
                                     
                                             var autocomplete = new google.maps.places.Autocomplete(searchInput, {
@@ -340,6 +339,14 @@
                                             autocomplete.addListener('place_changed', function () {
                                                 var near_place = autocomplete.getPlace();
                                                 // Handle the selected place if needed
+                                                var placeName = near_place.name;
+                                                var placeLocation = near_place.geometry.location;
+                                                // Save the location (latitude and longitude) for future use
+                                                var latitude = placeLocation.lat();
+                                                var longitude = placeLocation.lng();
+                                                console.log("Selected Place: " + placeName);     
+                                                console.log("Location: " + placeLocation);
+
                                             });
                                         }
                                     </script>
