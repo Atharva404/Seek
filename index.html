@@ -249,8 +249,136 @@
                                 <div id="map" style="height: 400px;"></div>
                                 
                                 <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                var map = new google.maps.Map(document.getElementById('map'), {
+                                
+                                </script>
+                               <!--
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10555.637007250158!2d-86.92181137651029!3d40.43038878465542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8812e2b584587373%3A0x1720d78cbd5a1dce!2sFrance%20A.%20C%C3%B3rdova%20Recreational%20Sports%20Center!5e0!3m2!1sen!2sus!4v1705733159326!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                               
+                               -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-warning" style="width: 13vw; height: 3vw; margin-top: 0.55vw;">Submit a Lost Item</button>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Lost Item
+                                </h6>
+                                <form style="text-align: center; margin-bottom: 10px" onsubmit="submitLostItem(event)">
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px; margin-top: 10px;">
+                                        <label for="itemName">Item Name:</label>
+                                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name" required>
+                                    </div>
+                                    <!-- Include the Google Places API script -->
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script>
+                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
+                                        <label for="placeFound">Place Found:</label>
+                                        <input type="text" class="form-control places-autocomplete" id="autocomplete" placeholder="Enter place found" required>
+                                    </div>
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
+                                        <label for="description">Description:</label>
+                                        <textarea class="form-control" id="description" rows="3" placeholder="Enter item description" required></textarea>
+                                    </div>
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxXjRNPwsFojnor3z18QACDYVd8csS94&libraries=places&callback=initAutocomplete" defer></script>
+
+                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
+                                        <label for="placeFound">Place Found:</label>
+                                        <input name="search_input" type="text" class="form-control places-autocomplete" id="autocomplete" placeholder="Enter place found" autocomplete = "on">
+                                    </div>
+
+                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
+                                        <label for="contact-info">Contact Info:</label>
+                                        <input type="text" class="form-control places-autocomplete" id="user_email" placeholder="Enter contact information" required>
+                                    </div>
+                                    <script>
+                                        var placeName;
+                                        var map; // Declare map globally
+                                        var placeLocation;
+                                        function initAutocomplete() {
+                                            var searchInput = document.querySelector('input[name="search_input"]');
+                                    
+                                            var autocomplete = new google.maps.places.Autocomplete(searchInput, {
+                                                types: ['geocode'],
+                                                componentRestrictions: { 'country': 'us' }
+                                            });
+                                    
+                                            autocomplete.addListener('place_changed', function () {
+                                                var near_place = autocomplete.getPlace();
+                                                // Handle the selected place if needed
+                                                placeName = near_place.name;
+                                                placeLocation = near_place.geometry.location;
+                                                // Save the location (latitude and longitude) for future use
+                                                var latitude = placeLocation.lat();
+                                                var longitude = placeLocation.lng();
+                                                console.log("Selected Place: " + placeName);     
+                                                console.log("Location: " + placeLocation);
+                                                new google.maps.Marker({
+                                            position: placeLocation,
+                                            map: map,
+                                            title: 'Item Location'
+                                        });
+
+                                                
+                                            });
+                                        }
+                                        function submitLostItem(event) {
+                        console.log("Form submitted!"); 
+
+                        console.log("submitLostItem function called"); 
+                        event.preventDefault(); // Prevent the default form submission
+
+                        // Get form values
+                        var itemName = document.getElementById("itemName").value;
+                        var placeFound = placeName;
+                        //var placeFound = document.getElementById("autocomplete").value;
+                        var description = document.getElementById("description").value;
+                        var imageUpload = document.getElementById("imageUpload").value;
+
+                        // Create HTML for the new product card
+                        var newProductCard = document.createElement("div");
+                        newProductCard.className = "col-xl-3 col-md-6 mb-4";
+                        newProductCard.innerHTML = `
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                ${itemName}
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${description}</div>
+                                            <div class="h6 font-weight-bold">${placeFound}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <img src="${imageUpload}" style="height: 5vw; width: 5vw;">
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        `;
+
+                        // Get the product container element
+                        var productContainer = document.getElementById("productContainer");
+
+                        // Append the new product card to the container
+                        productContainer.appendChild(newProductCard);
+
+                        // Clear the form after submission (optional)
+                        document.getElementById("itemName").value = "";
+                        document.getElementById("autocomplete").value = "";
+                        document.getElementById("description").value = "";
+                        document.getElementById("imageUpload").value = "";
+
+                        document.getElementById("user_email").value = "";
+                    }
+
+
+                    document.addEventListener('DOMContentLoaded', function () {
+                                 map = new google.maps.Map(document.getElementById('map'), {
                                     center: { lat: 0, lng: 0 }, 
                                     zoom: 8
                                 });
@@ -289,119 +417,6 @@
                                 }
                             });
                                 });
-                                </script>
-                               <!--
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10555.637007250158!2d-86.92181137651029!3d40.43038878465542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8812e2b584587373%3A0x1720d78cbd5a1dce!2sFrance%20A.%20C%C3%B3rdova%20Recreational%20Sports%20Center!5e0!3m2!1sen!2sus!4v1705733159326!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                               
-                               -->
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <button type="button" class="btn btn-warning" style="width: 13vw; height: 3vw; margin-top: 1vw;">Submit a Lost Item</button>
-                            </a>
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Lost Item
-                                </h6>
-                                <form style="text-align: center; margin-bottom: 10px" onsubmit="submitLostItem(event)">
-                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px; margin-top: 10px;">
-                                        <label for="itemName">Item Name:</label>
-                                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name" required>
-                                    </div>
-                                    <!-- Include the Google Places API script -->
-                                    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script>
-                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
-                                        <label for="placeFound">Place Found:</label>
-                                        <input type="text" class="form-control places-autocomplete" id="autocomplete" placeholder="Enter place found" required>
-                                    </div>
-                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
-                                        <label for="description">Description:</label>
-                                        <textarea class="form-control" id="description" rows="3" placeholder="Enter item description" required></textarea>
-                                    </div>
-                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxXjRNPwsFojnor3z18QACDYVd8csS94&libraries=places&callback=initAutocomplete" defer></script>
-
-                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
-                                        <label for="placeFound">Place Found:</label>
-                                        <input name="search_input" type="text" class="form-control places-autocomplete" id="search_input" placeholder="Enter place found" autocomplete = "on">
-                                    </div>
-                                    <script>
-                                        var placeName;
-                                        var placeLocation;
-                                        function initAutocomplete() {
-                                            var searchInput = document.querySelector('input[name="search_input"]');
-                                    
-                                            var autocomplete = new google.maps.places.Autocomplete(searchInput, {
-                                                types: ['geocode'],
-                                                componentRestrictions: { 'country': 'us' }
-                                            });
-                                    
-                                            autocomplete.addListener('place_changed', function () {
-                                                var near_place = autocomplete.getPlace();
-                                                // Handle the selected place if needed
-                                                placeName = near_place.name;
-                                                placeLocation = near_place.geometry.location;
-                                                // Save the location (latitude and longitude) for future use
-                                                var latitude = placeLocation.lat();
-                                                var longitude = placeLocation.lng();
-                                                console.log("Selected Place: " + placeName);     
-                                                console.log("Location: " + placeLocation);
-
-                                                
-                                            });
-                                        }
-                                        function submitLostItem(event) {
-                        console.log("Form submitted!"); 
-
-                        console.log("submitLostItem function called"); 
-                        event.preventDefault(); // Prevent the default form submission
-
-                        // Get form values
-                        var itemName = document.getElementById("itemName").value;
-                        var placeFound = placeName;
-                        //var placeFound = document.getElementById("autocomplete").value;
-                        var description = document.getElementById("description").value;
-                        var imageUpload = document.getElementById("imageUpload").value;
-
-                        // Create HTML for the new product card
-                        var newProductCard = document.createElement("div");
-                        newProductCard.className = "col-xl-3 col-md-6 mb-4";
-                        newProductCard.innerHTML = `
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                ${itemName}
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${description}</div>
-                                            <div class="h6 font-weight-bold">${placeFound}</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="${imageUpload}" style="height: 5vw; width: 5vw;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-
-                        // Get the product container element
-                        var productContainer = document.getElementById("productContainer");
-
-                        // Append the new product card to the container
-                        productContainer.appendChild(newProductCard);
-
-                        // Clear the form after submission (optional)
-                        document.getElementById("itemName").value = "";
-                        document.getElementById("autocomplete").value = "";
-                        document.getElementById("description").value = "";
-                        document.getElementById("imageUpload").value = "";
-                    }
-
-
-
                     </script>
                                     <div class="form-group" style="margin-left: 10px; margin-right: 10px">
                                         <label for="imageUpload">Image Upload:</label>
@@ -502,6 +517,7 @@
                                         <div class="col-auto">
                                             <img src="${product.imageURL}" style="height: 5vw; width: 5vw;">
                                         </div>
+                                        <button type="button" class="btn btn-primary" style="width: 8vw; height: 2.5vw; margin-top: 0.55vw;">Contact </button>
                                     </div>
                                 </div>
                             </div>
