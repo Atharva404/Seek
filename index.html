@@ -172,6 +172,27 @@
                             </div>
                         </div>
                     </form>
+                  
+                                   <script>
+                                       // let autocomplete;
+                                
+                                        //function initAutocomplete() {
+                                          //  console.log("test");
+                                          //  autocomplete = new google.maps.places.Autocomplete(
+                                           //     document.getElementById('autocomplete'),
+                                            //    {
+                                            //        componentRestrictions: {'country': ['US']},
+                                            //        fields: ['geometry', 'name']
+                                             //   }
+                                          //  );
+                                            //    autocomplete.addListener('place_changed', onPlaceChanged);
+                                       // }
+                                       // function onPlaceChanged() {
+                                //
+                                     //   }
+                                   
+                                    
+                                    </script>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -299,21 +320,38 @@
                                         <label for="description">Description:</label>
                                         <textarea class="form-control" id="description" rows="3" placeholder="Enter item description" required></textarea>
                                     </div>
-                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
-                                        <label for="imageUpload">Image Upload:</label>
-                                        <input type="file" class="form-control-file" id="imageUpload" required>
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxXjRNPwsFojnor3z18QACDYVd8csS94&libraries=places&callback=initAutocomplete" defer></script>
+
+                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
+                                        <label for="placeFound">Place Found:</label>
+                                        <input name="search_input" type="text" class="form-control places-autocomplete" id="search_input" placeholder="Enter place found" autocomplete = "on">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
-                            </div>
-                        </li>
-                    
+                                    <script>
+                                        var placeName;
+                                        var placeLocation;
+                                        function initAutocomplete() {
+                                            var searchInput = document.querySelector('input[name="search_input"]');
+                                    
+                                            var autocomplete = new google.maps.places.Autocomplete(searchInput, {
+                                                types: ['geocode'],
+                                                componentRestrictions: { 'country': 'us' }
+                                            });
+                                    
+                                            autocomplete.addListener('place_changed', function () {
+                                                var near_place = autocomplete.getPlace();
+                                                // Handle the selected place if needed
+                                                placeName = near_place.name;
+                                                placeLocation = near_place.geometry.location;
+                                                // Save the location (latitude and longitude) for future use
+                                                var latitude = placeLocation.lat();
+                                                var longitude = placeLocation.lng();
+                                                console.log("Selected Place: " + placeName);     
+                                                console.log("Location: " + placeLocation);
 
-                    
-
-                
-                            <script>
-                                function submitLostItem(event) {
+                                                
+                                            });
+                                        }
+                                        function submitLostItem(event) {
                         console.log("Form submitted!"); 
 
                         console.log("submitLostItem function called"); 
@@ -321,7 +359,8 @@
 
                         // Get form values
                         var itemName = document.getElementById("itemName").value;
-                        var placeFound = document.getElementById("autocomplete").value;
+                        var placeFound = placeName;
+                        //var placeFound = document.getElementById("autocomplete").value;
                         var description = document.getElementById("description").value;
                         var imageUpload = document.getElementById("imageUpload").value;
 
@@ -360,7 +399,18 @@
                         document.getElementById("imageUpload").value = "";
                     }
 
-                            </script>
+
+
+                    </script>
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
+                                        <label for="imageUpload">Image Upload:</label>
+                                        <input type="file" class="form-control-file" id="imageUpload" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </li>
+
                         </li>
             
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -572,22 +622,6 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
    <!-- test address populator-->
-    <script>
-        let autocomplete;
-
-        function initAutocomplete() {
-            autocomplete = new google.maps.places.Autocomplete(
-                document.getElementById('autocomplete'),
-                {
-                    componentRestrictions: {'country': ['US']},
-                    fields: ['geometry']
-                }
-            )
-
-        }
-        var input = document.getElementById('autocomplete');
-        var placesAutocomplete = new google.maps.places.Autocomplete(input);
-    </script>
     
 
 </body>
