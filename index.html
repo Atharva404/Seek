@@ -309,7 +309,7 @@
                                             <div class="h6 font-weight-bold">${placeFound}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <img src="${imageUpload}" style="height: 5vw; width: 5vw;" onchange="previewImage()">
+                                            <img src="${imageUrl}" style="height: 5vw; width: 5vw;" onchange="previewImage()">
                                             <img id="imagePreview" style="max-width: 100%; max-height: 100px; margin-top: 10px;" />
 
                                         </div>
@@ -332,6 +332,7 @@
                         document.getElementById("autocomplete").value = "";
                         document.getElementById("description").value = "";
                         document.getElementById("imageUpload").value = "";
+                        document.getElementById("imagePreview").value = "";
 
                         document.getElementById("user_email").value = "";
                     }
