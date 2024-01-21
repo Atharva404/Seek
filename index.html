@@ -172,6 +172,27 @@
                             </div>
                         </div>
                     </form>
+                  
+                                   <script>
+                                       // let autocomplete;
+                                
+                                        //function initAutocomplete() {
+                                          //  console.log("test");
+                                          //  autocomplete = new google.maps.places.Autocomplete(
+                                           //     document.getElementById('autocomplete'),
+                                            //    {
+                                            //        componentRestrictions: {'country': ['US']},
+                                            //        fields: ['geometry', 'name']
+                                             //   }
+                                          //  );
+                                            //    autocomplete.addListener('place_changed', onPlaceChanged);
+                                       // }
+                                       // function onPlaceChanged() {
+                                //
+                                     //   }
+                                   
+                                    
+                                    </script>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -296,15 +317,34 @@
                                         <label for="itemName">Item Name:</label>
                                         <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
                                     </div>
-                                    <script src="https://maps.googleapis.com/maps/api/js?key=https://maps.googleapis.com/maps/api/js?key=AIzaSyACxXjRNPwsFojnor3z18QACDYVd8csS94&libraries=places&callback=initMap"></script>
-                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
-                                        <label for="placeFound">Place Found:</label>
-                                        <input type="text" class="form-control places-autocomplete" id="autocomplete" placeholder="Enter place found">
-                                    </div>
+                                    
                                     <div class="form-group" style="margin-left: 10px; margin-right: 10px">
                                         <label for="description">Description:</label>
                                         <textarea class="form-control" id="description" rows="3" placeholder="Enter item description"></textarea>
                                     </div>
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxXjRNPwsFojnor3z18QACDYVd8csS94&libraries=places&callback=initAutocomplete" defer></script>
+
+                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
+                                        <label for="placeFound">Place Found:</label>
+                                        <input name="search_input" type="text" class="form-control places-autocomplete" id="search_input" placeholder="Enter place found" autocomplete = "on">
+                                    </div>
+                                    
+                                    <script>
+                                        function initAutocomplete() {
+                                            console.log("success perhaps");
+                                            var searchInput = document.querySelector('input[name="search_input"]');
+                                    
+                                            var autocomplete = new google.maps.places.Autocomplete(searchInput, {
+                                                types: ['geocode'],
+                                                componentRestrictions: { 'country': 'us' }
+                                            });
+                                    
+                                            autocomplete.addListener('place_changed', function () {
+                                                var near_place = autocomplete.getPlace();
+                                                // Handle the selected place if needed
+                                            });
+                                        }
+                                    </script>
                                     <div class="form-group" style="margin-left: 10px; margin-right: 10px">
                                         <label for="imageUpload">Image Upload:</label>
                                         <input type="file" class="form-control-file" id="imageUpload">
@@ -563,22 +603,6 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
    <!-- test address populator-->
-    <script>
-        let autocomplete;
-
-        function initAutocomplete() {
-            autocomplete = new google.maps.places.Autocomplete(
-                document.getElementById('autocomplete'),
-                {
-                    componentRestrictions: {'country': ['US']},
-                    fields: ['geometry']
-                }
-            )
-
-        }
-        var input = document.getElementById('autocomplete');
-        var placesAutocomplete = new google.maps.places.Autocomplete(input);
-    </script>
     
 
 </body>
