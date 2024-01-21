@@ -163,9 +163,9 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                             <input type="text" id="searchInput" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
+
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -193,31 +193,6 @@
                                      //   }
                                    
                                     
-=======
-                                    // Add an event listener to the search input
-                                    document.getElementById('searchInput').addEventListener('input', function () {
-                                        // Get the entered keyword
-                                        var keyword = this.value.toLowerCase();
-                                
-                                        // Get all the items/cards you want to filter (adjust the selector accordingly)
-                                        var items = document.querySelectorAll('.card');
-                                
-                                        // Loop through each item/card
-                                        items.forEach(function (item) {
-                                            // Get the text content of the item/card
-                                            var itemText = item.textContent.toLowerCase();
-                                
-                                            // Check if the keyword is present in the item's text
-                                            if (itemText.includes(keyword)) {
-                                                // If present, show the item
-                                                item.style.display = 'block';
-                                            } else {
-                                                // If not present, hide the item
-                                                item.style.display = 'none';
-                                            }
-                                        });
-                                    });
->>>>>>> Stashed changes
                                     </script>
 
                     <!-- Topbar Navbar -->
