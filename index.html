@@ -326,8 +326,9 @@
                                         <label for="placeFound">Place Found:</label>
                                         <input name="search_input" type="text" class="form-control places-autocomplete" id="search_input" placeholder="Enter place found" autocomplete = "on">
                                     </div>
-                                    
                                     <script>
+                                        var placeName;
+                                        var placeLocation;
                                         function initAutocomplete() {
                                             var searchInput = document.querySelector('input[name="search_input"]');
                                     
@@ -339,32 +340,18 @@
                                             autocomplete.addListener('place_changed', function () {
                                                 var near_place = autocomplete.getPlace();
                                                 // Handle the selected place if needed
-                                                var placeName = near_place.name;
-                                                var placeLocation = near_place.geometry.location;
+                                                placeName = near_place.name;
+                                                placeLocation = near_place.geometry.location;
                                                 // Save the location (latitude and longitude) for future use
                                                 var latitude = placeLocation.lat();
                                                 var longitude = placeLocation.lng();
                                                 console.log("Selected Place: " + placeName);     
                                                 console.log("Location: " + placeLocation);
 
+                                                
                                             });
                                         }
-                                    </script>
-                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
-                                        <label for="imageUpload">Image Upload:</label>
-                                        <input type="file" class="form-control-file" id="imageUpload" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
-                            </div>
-                        </li>
-                    
-
-                    
-
-                
-                            <script>
-                                function submitLostItem(event) {
+                                        function submitLostItem(event) {
                         console.log("Form submitted!"); 
 
                         console.log("submitLostItem function called"); 
@@ -372,7 +359,8 @@
 
                         // Get form values
                         var itemName = document.getElementById("itemName").value;
-                        var placeFound = document.getElementById("autocomplete").value;
+                        var placeFound = placeName;
+                        //var placeFound = document.getElementById("autocomplete").value;
                         var description = document.getElementById("description").value;
                         var imageUpload = document.getElementById("imageUpload").value;
 
@@ -411,7 +399,18 @@
                         document.getElementById("imageUpload").value = "";
                     }
 
-                            </script>
+
+
+                    </script>
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
+                                        <label for="imageUpload">Image Upload:</label>
+                                        <input type="file" class="form-control-file" id="imageUpload" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </li>
+
                         </li>
             
                         <div class="topbar-divider d-none d-sm-block"></div>
