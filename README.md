@@ -1,7 +1,5 @@
 BoilerMake XI Submission
 
-Introducing Seek: Modernizing the lost and found bucket”
+## Inspiration
+The inspiration for Seek struck us during a personal experience of losing our AirPods. Frustrated with the traditional methods of posting on social media and retracing steps, I envisioned a platform tailored for Purdue students to simplify the process of finding lost items. The idea was to modernize the conventional lost and found bucket, providing a dedicated space for the Boilermaker community.
 
-People lose items all the time. Often people never find their lost items and end up replacing the items they have lost.
-
-I have had a personal experience with my aiprods being lost and I had to post on purdue snap story and try retracing my steps. I thought to myself, “what if there was a website where people can post lost items”...and then became seek
