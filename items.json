@@ -1,61 +1,197 @@
 {
     "lostItems": [
       {
-        "itemName": "Airpod Pro Max",
+        "itemName": "Laptop",
         "foundLocation": "Hillenbrand",
-        "additionalInfo": "Blue Airpod Max",
-        "imageURL": "images/6376542_sd.jpg",
-        "usr_email": "rastog15@purdue.edu"
+        "additionalInfo": "Silver MacBook Pro with a black case",
+        "imageURL": "link_to_image1.jpg"
       },
       {
         "itemName": "Water Bottle",
         "foundLocation": "Meredith",
         "additionalInfo": "Blue Nalgene bottle with stickers",
-        "imageURL": "images/eeg4zec3ug841.jpg",
-        "usr_email": "gupta831@purdue.edu"
+        "imageURL": "link_to_image2.jpg"
       },
       {
         "itemName": "Wallet",
         "foundLocation": "Meredith South",
         "additionalInfo": "Black leather wallet with ID card",
-        "imageURL": "images/s-l400.jpg",
-        "usr_email": "ptkleap@purdue.edu"
+        "imageURL": "link_to_image3.jpg"
       },
       {
         "itemName": "Notebook",
         "foundLocation": "Cary Quadrangle",
         "additionalInfo": "Spiral-bound notebook with handwritten notes",
-        "imageURL": "images/Macdonald,+Ross.+The+Endless+City+-+8+spiral+bound+notebooks.jpg",
-        "usr_email": "rastog15@purdue.edu"
+        "imageURL": "link_to_image4.jpg"
       },
       {
         "itemName": "Phone",
         "foundLocation": "Harrison",
         "additionalInfo": "iPhone 11 with a cracked screen",
-        "imageURL": "images/IMG_3046-1080x675.jpeg",
-        "usr_email": "rastog15@purdue.edu"
+        "imageURL": "link_to_image5.jpg"
       },
       {
         "itemName": "Backpack",
         "foundLocation": "Shreve",
         "additionalInfo": "Black backpack with a red keychain",
-        "imageURL": "images/14874157-1-peoredblack.webp",
-        "usr_email": "gupta831@purdue.edu"
+        "imageURL": "link_to_image6.jpg"
       },
       {
         "itemName": "Umbrella",
         "foundLocation": "Earhart",
         "additionalInfo": "Foldable blue umbrella",
-        "imageURL": "images/s-l1200 (2).webp",
-        "usr_email": "ptkleap@purdue.edu"
+        "imageURL": "link_to_image7.jpg"
       },
       {
         "itemName": "Keys",
         "foundLocation": "Aspire",
         "additionalInfo": "Set of keys with a keychain",
-        "imageURL": "images/16933813295f1e5289ba700fc48dc3d665e5d7d485_thumbnail_720x.jpg",
-        "usr_email": "sriva121@purdue.edu"
-      }
+        "imageURL": "link_to_image8.jpg"
+      },
+      {
+        "itemName": "Glasses",
+        "foundLocation": "Winifred Parker",
+        "additionalInfo": "Prescription glasses in a black case",
+        "imageURL": "link_to_image9.jpg"
+      },
+      {
+        "itemName": "Water Bottle",
+        "foundLocation": "Windsor",
+        "additionalInfo": "Stainless steel water bottle",
+        "imageURL": "link_to_image10.jpg"
+      },
+      {
+        "itemName": "ID Card",
+        "foundLocation": "McCutcheon",
+        "additionalInfo": "Purdue University ID card",
+        "imageURL": "link_to_image11.jpg"
+      },
+      {
+        "itemName": "Headphones",
+        "foundLocation": "Tarkington",
+        "additionalInfo": "Wireless over-ear headphones",
+        "imageURL": "link_to_image12.jpg"
+      },
+      {
+        "itemName": "Laptop Charger",
+        "foundLocation": "First Street Towers",
+        "additionalInfo": "Dell laptop charger with a blue tag",
+        "imageURL": "link_to_image13.jpg"
+      },
+      {
+        "itemName": "Watch",
+        "foundLocation": "Frieda Parker",
+        "additionalInfo": "Silver wristwatch with a leather strap",
+        "imageURL": "link_to_image14.jpg"
+      },
+      {
+        "itemName": "Notebook",
+        "foundLocation": "Hawkins",
+        "additionalInfo": "Yellow legal pad with doodles",
+        "imageURL": "link_to_image15.jpg"
+      },
+      {
+        "itemName": "Backpack",
+        "foundLocation": "Honors College",
+        "additionalInfo": "Green backpack with a laptop compartment",
+        "imageURL": "link_to_image16.jpg"
+      },
+      {
+        "itemName": "Umbrella",
+        "foundLocation": "Owen",
+        "additionalInfo": "Red and white striped umbrella",
+        "imageURL": "link_to_image17.jpg"
+      },
+      {
+        "itemName": "Book",
+        "foundLocation": "Wiley",
+        "additionalInfo": "Introduction to Computer Science textbook",
+        "imageURL": "link_to_image18.jpg"
+      },
+      {
+        "itemName": "Sunglasses",
+        "foundLocation": "Hillenbrand",
+        "additionalInfo": "Aviator sunglasses with a gold frame",
+        "imageURL": "link_to_image19.jpg"
+      },
+      {
+        "itemName": "Snack Box",
+        "foundLocation": "Meredith",
+        "additionalInfo": "Transparent plastic snack box with assorted snacks",
+        "imageURL": "link_to_image20.jpg"
+      },
+      {
+        "itemName": "Headphones Case",
+        "foundLocation": "Meredith South",
+        "additionalInfo": "Black case for wireless headphones",
+        "imageURL": "link_to_image21.jpg"
+      },
+      {
+        "itemName": "Jacket",
+        "foundLocation": "Cary Quadrangle",
+        "additionalInfo": "Blue denim jacket with a white stripe",
+        "imageURL": "link_to_image22.jpg"
+      },
+      {
+        "itemName": "Coffee Mug",
+        "foundLocation": "Harrison",
+        "additionalInfo": "Ceramic coffee mug with a funny quote",
+        "imageURL": "link_to_image23.jpg"
+      },
+      {
+        "itemName": "Lunch Box",
+        "foundLocation": "Shreve",
+        "additionalInfo": "Insulated lunch box with a cartoon character",
+        "imageURL": "link_to_image24.jpg"
+      },
+      {
+        "itemName": "Notebook",
+        "foundLocation": "Earhart",
+        "additionalInfo": "Hardcover notebook with a floral design",
+        "imageURL": "link_to_image25.jpg"
+      },
+      {
+        "itemName": "USB Drive",
+        "foundLocation": "Aspire",
+        "additionalInfo": "Black USB drive with important documents",
+        "imageURL": "link_to_image26.jpg"
+      },
+      {
+        "itemName": "Hat",
+        "foundLocation": "Winifred Parker",
+        "additionalInfo": "Red baseball cap with Purdue logo",
+        "imageURL": "link_to_image27.jpg"
+      },
+      {
+        "itemName": "Water Bottle",
+        "foundLocation": "Windsor",
+        "additionalInfo": "Insulated water bottle with a floral pattern",
+        "imageURL": "link_to_image28.jpg"
+      },
+      {
+        "itemName": "Calculator",
+        "foundLocation": "McCutcheon",
+        "additionalInfo": "Scientific calculator with a protective case",
+        "imageURL": "link_to_image29.jpg"
+      },
+      {
+        "itemName": "Sweater",
+        "foundLocation": "Tarkington",
+        "additionalInfo": "Gray knitted sweater with a V-neck",
+        "imageURL": "link_to_image30.jpg"
+      },
+      {
+        "itemName": "Notebook",
+        "foundLocation": "First Street Towers",
+        "additionalInfo": "College-ruled spiral notebook with a purple cover",
+        "imageURL": "link_to_image31.jpg"
+      },
+      {
+        "itemName": "Neck Pillow",
+        "foundLocation": "Frieda Parker",
+        "additionalInfo": "Memory foam",
+        "imageURL": "link_to_image32.jpg"
+       }
     ]
 }
   
