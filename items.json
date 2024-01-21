@@ -4,49 +4,57 @@
         "itemName": "Airpod Pro Max",
         "foundLocation": "Hillenbrand",
         "additionalInfo": "Blue Airpod Max",
-        "imageURL": "images/6376542_sd.jpg"
+        "imageURL": "images/6376542_sd.jpg",
+        "usr_email": "rastog15@purdue.edu"
       },
       {
         "itemName": "Water Bottle",
         "foundLocation": "Meredith",
         "additionalInfo": "Blue Nalgene bottle with stickers",
-        "imageURL": "images/eeg4zec3ug841.jpg"
+        "imageURL": "images/eeg4zec3ug841.jpg",
+        "usr_email": "gupta831@purdue.edu"
       },
       {
         "itemName": "Wallet",
         "foundLocation": "Meredith South",
         "additionalInfo": "Black leather wallet with ID card",
-        "imageURL": "images/s-l400.jpg"
+        "imageURL": "images/s-l400.jpg",
+        "usr_email": "ptkleap@purdue.edu"
       },
       {
         "itemName": "Notebook",
         "foundLocation": "Cary Quadrangle",
         "additionalInfo": "Spiral-bound notebook with handwritten notes",
-        "imageURL": "images/Macdonald,+Ross.+The+Endless+City+-+8+spiral+bound+notebooks.jpg"
+        "imageURL": "images/Macdonald,+Ross.+The+Endless+City+-+8+spiral+bound+notebooks.jpg",
+        "usr_email": "rastog15@purdue.edu"
       },
       {
         "itemName": "Phone",
         "foundLocation": "Harrison",
         "additionalInfo": "iPhone 11 with a cracked screen",
-        "imageURL": "images/IMG_3046-1080x675.jpeg"
+        "imageURL": "images/IMG_3046-1080x675.jpeg",
+        "usr_email": "rastog15@purdue.edu"
       },
       {
         "itemName": "Backpack",
         "foundLocation": "Shreve",
         "additionalInfo": "Black backpack with a red keychain",
-        "imageURL": "images/14874157-1-peoredblack.webp"
+        "imageURL": "images/14874157-1-peoredblack.webp",
+        "usr_email": "gupta831@purdue.edu"
       },
       {
         "itemName": "Umbrella",
         "foundLocation": "Earhart",
         "additionalInfo": "Foldable blue umbrella",
-        "imageURL": "images/s-l1200 (2).webp"
+        "imageURL": "images/s-l1200 (2).webp",
+        "usr_email": "ptkleap@purdue.edu"
       },
       {
         "itemName": "Keys",
         "foundLocation": "Aspire",
         "additionalInfo": "Set of keys with a keychain",
-        "imageURL": "images/16933813295f1e5289ba700fc48dc3d665e5d7d485_thumbnail_720x.jpg"
+        "imageURL": "images/16933813295f1e5289ba700fc48dc3d665e5d7d485_thumbnail_720x.jpg",
+        "usr_email": "sriva121@purdue.edu"
       }
     ]
 }
