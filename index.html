@@ -75,6 +75,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Campus Buildings</h6>
+                        <a class="collapse-item" href="buttons.html">Buttons</a>
                         <a class="collapse-item" href="#">Lily Hall</a>
                         <a class="collapse-item" href="#">Lawson</a>
                         <a class="collapse-item" href="#">Physics Building</a>
@@ -94,51 +95,10 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <img src="images/logo.png" alt="" style="margin-top: 8vw; width: 11vw; height: 8vw; margin-left: 2vw;">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <div class="text-center d-none d-md-inline" style="margin-top: 19vw;">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>  
         </ul>
@@ -162,8 +122,9 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            <input type="text" id="searchInput" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
+
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -171,6 +132,33 @@
                             </div>
                         </div>
                     </form>
+                  
+                                   <script>
+                                    document.getElementById('searchInput').addEventListener('input', function () {
+                                        // Get the entered keyword
+                                        var keyword = this.value.toLowerCase();
+                               
+                                        // Get all the items/cards you want to filter (adjust the selector accordingly)
+                                        var items = document.querySelectorAll('.card');
+                               
+                                        // Loop through each item/card
+                                        items.forEach(function (item) {
+                                            // Get the text content of the item/card
+                                            var itemText = item.textContent.toLowerCase();
+                               
+                                            // Check if the keyword is present in the item's text
+                                            if (itemText.includes(keyword)) {
+                                                // If present, show the item
+                                                item.style.display = 'block';
+                                            } else {
+                                                // If not present, hide the item
+                                                item.style.display = 'none';
+                                            }
+                                        });
+                                    });
+
+                                    
+                                    </script>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -204,6 +192,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <button type="button" class="btn btn-info" style="width: 13vw; height: 3vw; margin-top: 0.6vw;">Map</button>
                             </a>
+
                             <!-- Dropdown - Alerts -->
                             
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -225,8 +214,157 @@
                                 <div id="map" style="height: 400px;"></div>
                                 
                                 <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    $ = function(id) {
+                                    return document.getElementById(id);
+                                    }
+
+                                    var show = function(id) {
+                                        $(id).style.display ='block';
+                                    }
+                                    var hide = function(id) {
+                                        $(id).style.display ='none';
+                                    }
+                                </script>
+                               <!--
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10555.637007250158!2d-86.92181137651029!3d40.43038878465542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8812e2b584587373%3A0x1720d78cbd5a1dce!2sFrance%20A.%20C%C3%B3rdova%20Recreational%20Sports%20Center!5e0!3m2!1sen!2sus!4v1705733159326!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                               
+                               -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-warning" style="width: 13vw; height: 3vw; margin-top: 0.55vw;">Submit a Lost Item</button>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Lost Item
+                                </h6>
+                                <form style="text-align: center; margin-bottom: 10px" onsubmit="submitLostItem(event)">
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px; margin-top: 10px;">
+                                        <label for="itemName">Item Name:</label>
+                                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name" required>
+                                    </div>
+                                    <!-- Include the Google Places API script -->
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script>
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
+                                        <label for="description">Description:</label>
+                                        <textarea class="form-control" id="description" rows="3" placeholder="Enter item description" required></textarea>
+                                    </div>
+                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxXjRNPwsFojnor3z18QACDYVd8csS94&libraries=places&callback=initAutocomplete" defer></script>
+
+                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
+                                        <label for="placeFound">Place Found:</label>
+                                        <input name="search_input" type="text" class="form-control places-autocomplete" id="autocomplete" placeholder="Enter place found" autocomplete = "on">
+                                    </div>
+
+                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
+                                        <label for="contact-info">Contact Info:</label>
+                                        <input type="text" class="form-control places-autocomplete" id="user_email" placeholder="Enter contact information" required>
+                                    </div>
+                                    <script>
+                                        var placeName;
+                                        var map; // Declare map globally
+                                        var placeLocation;
+                                        function initAutocomplete() {
+                                            var searchInput = document.querySelector('input[name="search_input"]');
+                                    
+                                            var autocomplete = new google.maps.places.Autocomplete(searchInput, {
+                                                types: ['geocode'],
+                                                componentRestrictions: { 'country': 'us' }
+                                            });
+                                    
+                                            autocomplete.addListener('place_changed', function () {
+                                                var near_place = autocomplete.getPlace();
+                                                // Handle the selected place if needed
+                                                placeName = near_place.name;
+                                                placeLocation = near_place.geometry.location;
+                                                // Save the location (latitude and longitude) for future use
+                                                var latitude = placeLocation.lat();
+                                                var longitude = placeLocation.lng();
+                                                console.log("Selected Place: " + placeName);     
+                                                console.log("Location: " + placeLocation);
+                                                new google.maps.Marker({
+                                            position: placeLocation,
+                                            map: map,
+                                            title: 'Item Location'
+                                        });
+
+                                                
+                                            });
+                                        }
+                                        function submitLostItem(event) {
+                        console.log("Form submitted!"); 
+
+                        console.log("submitLostItem function called"); 
+                        event.preventDefault(); // Prevent the default form submission
+
+                        // Get form values
+                        var itemName = document.getElementById("itemName").value;
+                        var placeFound = placeName;
+                        //var placeFound = document.getElementById("autocomplete").value;
+                        var description = document.getElementById("description").value;
+                        var imageUpload = document.getElementById("imageUpload")
+                        var imageUpload = document.getElementById("imageUpload");
+                        var imageUrl = document.getElementById("imagePreview").src;         
+                        var usr_email = document.getElementById("user_email").value;
+                        // Create HTML for the new product card
+                        var newProductCard = document.createElement("div");
+                        newProductCard.className = "col-xl-3 col-md-6 mb-4";
+                        newProductCard.innerHTML = `
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                ${itemName}
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${description}</div>
+                                            <div class="h6 font-weight-bold">${placeFound}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <img src="${imageUrl}" style="height: 5vw; width: 5vw;" onchange="previewImage()">
+                                            <img id="imagePreview" style="max-width: 100%; max-height: 100px; margin-top: 10px;" />
+
+                                        </div>
+                                       
+                                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button type="button" id = "myBtn" class="btn btn-primary" style="width: 8vw; height: 2.5vw; margin-top: 0.55vw;"">Contact </button>
+                                        </a>
+                                        <!-- Dropdown - Alerts -->
+                                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                            aria-labelledby="alertsDropdown">
+                                            <h6 class="dropdown-header">
+                                                ${usr_email}
+                                            </h6>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                        `;
+
+
+                        // Get the product container element
+                        var productContainer = document.getElementById("productContainer");
+                        
+                        // Append the new product card to the container
+                        productContainer.appendChild(newProductCard);
+
+                        // Clear the form after submission (optional)
+                        document.getElementById("itemName").value = "";
+                        document.getElementById("autocomplete").value = "";
+                        document.getElementById("description").value = "";
+                        document.getElementById("imageUpload").value = "";
+                        document.getElementById("imagePreview").value = "";
+
+                        document.getElementById("user_email").value = "";
+                    }
+
+
+                    document.addEventListener('DOMContentLoaded', function () {
+                                 map = new google.maps.Map(document.getElementById('map'), {
                                     center: { lat: 0, lng: 0 }, 
                                     zoom: 8
                                 });
@@ -259,28 +397,41 @@
                                 document.body.addEventListener('click', function (e) {
                                 var alertsDropdown = document.querySelector('.nav-item.dropdown.no-arrow.mx-1');
 
-                                if (!alertsDropdown.contains(e.target) && !document.getElementById('map').contains(e.target)) {
-                                    console.log('Element ID:', alertsDropdown.id);
+                                if (!alertsDropdown.contains(e.target) && document.getElementById('map').contains(e.target)) {
+                                    console.log('Element ID:' + !alertsDropdown.contains(e.target) + !document.getElementById('map').contains(e.target));
                                     alertsDropdown.classList.remove('show');
                                 }
                             });
                                 });
-                                </script>
-
-<!-- ... (your existing code) ... -->
-
-                                
-                               <!--
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10555.637007250158!2d-86.92181137651029!3d40.43038878465542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8812e2b584587373%3A0x1720d78cbd5a1dce!2sFrance%20A.%20C%C3%B3rdova%20Recreational%20Sports%20Center!5e0!3m2!1sen!2sus!4v1705733159326!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                               
-                               -->
+                    </script>
+                                    <div class="form-group" style="margin-left: 10px; margin-right: 10px">
+                                        <label for="imageUpload">Image Upload:</label>
+                                        <input type="file" id="imageUpload" accept="image/*" onchange="previewImage()">
+                                        <img id="imagePreview" style="max-width: 100%; max-height: 100px; margin-top: 10px;" />
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
                         </li>
-                    
 
-
-                       
-                        <button type="button" class="btn btn-warning" style="width: 13vw; height: 3vw; margin-top: 1vw;">Submit a Lost Item</button>
-
+                        </li>
+                        <script>
+                            function previewImage() {
+                                var input = document.getElementById('imageUpload');
+                                var preview = document.getElementById('imagePreview');
+                        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+                        
+                                    reader.onload = function (e) {
+                                        preview.src = e.target.result;
+                                    };
+                        
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                            }
+                        </script>
+            
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
@@ -327,108 +478,26 @@
                         <h1 class="h3 mb-0 text-gray-800">Items</h1>
                     </div>
 
-<<<<<<< Updated upstream
                     <!-- Content Row -->
                     <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-=======
-                    <div class="row" id="productContainer">
-                        <!-- Product cards will be dynamically added here -->
-                    </div>
-                    
-                    <script>
-                        
-                        // Fetch JSON data asynchronously
-                        // fetch('items.json')
-                        //     .then(response => response.json())
-                        //     .then(data => {
-                        //         var productList = data.lostItems;
-                
-                        //         // Get the product container element
-                        //         var productContainer = document.getElementById("productContainer");
-
-                        //         // Loop through the product list and create HTML for each product
-                        //         productList.forEach(function(product) {
-                        //             // Create HTML elements for the product card
-                        //             var productCard = document.createElement("div");
-                        //             productCard.className = "col-xl-3 col-md-6 mb-4";
-                        //             productCard.innerHTML = `
-                        //                 <div class="card border-left-primary shadow h-100 py-2">
-                        //                     <div class="card-body">
-                        //                         <div class="row no-gutters align-items-center">
-                        //                             <div class="col mr-2">
-                        //                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        //                                     ${product.itemName}
-                        //                                 </div>
-                        //                                 <div class="h5 mb-0 font-weight-bold text-gray-800">${product.additionalInfo}</div>
-                        //                                 <div class="h6 font-weight-bold">${product.foundLocation}</div>
-                        //                             </div>
-                        //                             <div class="col-auto">
-                        //                                 <img src="${product.imageURL}" style="height: 5vw; width: 5vw;">
-                        //                             </div>
-                        //                         </div>
-                        //                     </div>
-                        //                 </div>
-                        //             `;
-                
-                        //             // Append the product card to the container
-                        //             productContainer.appendChild(productCard);
-                        //         });
-                        //     })
-                        //     .catch(error => console.error('Error fetching data:', error));
-                        fetch('items.json')
-            .then(response => response.json())
-            .then(data => {
-                var productList = data.lostItems;
-
-                // Get the product container element
-                var productContainer = document.getElementById("productContainer");
-
-                // Function to filter and display products based on location
-                window.filterByLocation = function (location) {
-                    // Clear existing product cards
-                    productContainer.innerHTML = "";
-
-                    // Filter products based on location
-                    var filteredProducts = productList.filter(function (product) {
-                        return product.foundLocation.toLowerCase().includes(location.toLowerCase());
-                    });
-
-                    // Create HTML for each filtered product
-                    filteredProducts.forEach(function (product) {
-                        // Create HTML elements for the product card
-                        var productCard = document.createElement("div");
-                        productCard.className = "col-xl-3 col-md-6 mb-4";
-                        productCard.innerHTML = `
->>>>>>> Stashed changes
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-<<<<<<< Updated upstream
                                                 Airpod Pro Max    
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Blue Color</div>
                                         </div>
                                         <div class="col-auto">
                                             <img src="images/6376542_sd.jpg" style="height: 5vw; width: 5vw;">
-=======
-                                                ${product.itemName}
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${product.additionalInfo}</div>
-                                            <div class="h6 font-weight-bold">${product.foundLocation}</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="${product.imageURL}" style="height: 5vw; width: 5vw;">
->>>>>>> Stashed changes
                                         </div>
                                     </div>
                                 </div>
                             </div>
-<<<<<<< Updated upstream
                         </div>
 
                        
@@ -498,153 +567,43 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Airpod Pro Max    
+                                                ${product.itemName}
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Blue Color</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${product.additionalInfo}</div>
+                                            <div class="h6 font-weight-bold">${product.foundLocation}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <img src="images/6376542_sd.jpg" style="height: 5vw; width: 5vw;">
+                                            <img src="${product.imageURL}" style="height: 8vw; width: 7vw;">
                                         </div>
+                                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button type="button" id = "myBtn" class="btn btn-primary" style="width: 8vw; height: 2.5vw; margin-top: 0.55vw;"">Contact </button>
+                                        </a>
+                                        <!-- Dropdown - Alerts -->
+                                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                            aria-labelledby="alertsDropdown">
+                                            <h6 class="dropdown-header">
+                                                ${product.usr_email}
+                                            </h6>
+                                                </div>
+                                                
+                                            </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                          <!-- Earnings (Monthly) Card Example -->
-                          <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Airpod Pro Max    
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Blue Color</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="images/6376542_sd.jpg" style="height: 5vw; width: 5vw;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                          <!-- Earnings (Monthly) Card Example -->
-                          <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Airpod Pro Max    
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Blue Color</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="images/6376542_sd.jpg" style="height: 5vw; width: 5vw;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                          <!-- Earnings (Monthly) Card Example -->
-                          <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Airpod Pro Max    
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Blue Color</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="images/6376542_sd.jpg" style="height: 5vw; width: 5vw;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                          <!-- Earnings (Monthly) Card Example -->
-                          <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Airpod Pro Max    
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Blue Color</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="images/6376542_sd.jpg" style="height: 5vw; width: 5vw;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                          <!-- Earnings (Monthly) Card Example -->
-                          <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Airpod Pro Max    
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Blue Color</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="images/6376542_sd.jpg" style="height: 5vw; width: 5vw;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                          <!-- Earnings (Monthly) Card Example -->
-                          <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Airpod Pro Max    
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Blue Color</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="images/6376542_sd.jpg" style="height: 5vw; width: 5vw;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-=======
                         `;
 
                         // Append the product card to the container
                         productContainer.appendChild(productCard);
                     });
-                };
 
+                };
                 // Initial display of all products
                 filterByLocation(''); // Display all products initially
             })
             .catch(error => console.error('Error fetching data:', error));
                     </script>
                     
->>>>>>> Stashed changes
                         <!-- Content Column -->
                         <div class="col-lg-6 mb-4">
 
@@ -656,34 +615,34 @@
                                     <h6 class="m-0 font-weight-bold text-primary">All Lost Items</h6>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold">AirPods Lost<span
-                                            class="float-right">55%</span></h4>
+                                    <h4 class="small font-weight-bold">AirPods<span
+                                            class="float-right">20%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 55%"
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
                                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Keys Lost<span
+                                    <h4 class="small font-weight-bold">Wallets<span
                                             class="float-right">40%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 12.5%"
                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Waterbottles<span
-                                            class="float-right">10%</span></h4>
+                                    <h4 class="small font-weight-bold">Cars<span
+                                            class="float-right">60%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 10%"
+                                        <div class="progress-bar" role="progressbar" style="width: 60%"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Jelwery<span
-                                            class="float-right">40%</span></h4>
+                                    <h4 class="small font-weight-bold">Keys<span
+                                            class="float-right">80%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 40%"
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
                                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Misc<span
-                                            class="float-right">Complete!</span></h4>
+                                            class="float-right">42.8%</span></h4>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 42.8%"
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
@@ -698,16 +657,6 @@
 
             </div>
             <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; BoilerMake XI 2024</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -756,7 +705,8 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+   <!-- test address populator-->
+    
 
 </body>
-
 </html>
