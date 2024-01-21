@@ -1,52 +1,52 @@
 {
     "lostItems": [
       {
-        "itemName": "Laptop",
+        "itemName": "Airpod Pro Max",
         "foundLocation": "Hillenbrand",
-        "additionalInfo": "Silver MacBook Pro with a black case",
-        "imageURL": "link_to_image1.jpg"
+        "additionalInfo": "Blue Airpod Max",
+        "imageURL": "images/6376542_sd.jpg"
       },
       {
         "itemName": "Water Bottle",
         "foundLocation": "Meredith",
         "additionalInfo": "Blue Nalgene bottle with stickers",
-        "imageURL": "link_to_image2.jpg"
+        "imageURL": "images/eeg4zec3ug841.jpg"
       },
       {
         "itemName": "Wallet",
         "foundLocation": "Meredith South",
         "additionalInfo": "Black leather wallet with ID card",
-        "imageURL": "link_to_image3.jpg"
+        "imageURL": "images/s-l400.jpg"
       },
       {
         "itemName": "Notebook",
         "foundLocation": "Cary Quadrangle",
         "additionalInfo": "Spiral-bound notebook with handwritten notes",
-        "imageURL": "link_to_image4.jpg"
+        "imageURL": "images/Macdonald,+Ross.+The+Endless+City+-+8+spiral+bound+notebooks.jpg"
       },
       {
         "itemName": "Phone",
         "foundLocation": "Harrison",
         "additionalInfo": "iPhone 11 with a cracked screen",
-        "imageURL": "link_to_image5.jpg"
+        "imageURL": "images/IMG_3046-1080x675.jpeg"
       },
       {
         "itemName": "Backpack",
         "foundLocation": "Shreve",
         "additionalInfo": "Black backpack with a red keychain",
-        "imageURL": "link_to_image6.jpg"
+        "imageURL": "images/14874157-1-peoredblack.webp"
       },
       {
         "itemName": "Umbrella",
         "foundLocation": "Earhart",
         "additionalInfo": "Foldable blue umbrella",
-        "imageURL": "link_to_image7.jpg"
+        "imageURL": "images/s-l1200 (2).webp"
       },
       {
         "itemName": "Keys",
         "foundLocation": "Aspire",
         "additionalInfo": "Set of keys with a keychain",
-        "imageURL": "link_to_image8.jpg"
+        "imageURL": "images/16933813295f1e5289ba700fc48dc3d665e5d7d485_thumbnail_720x.jpg"
       }
     ]
 }
