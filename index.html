@@ -233,10 +233,6 @@
                                     </div>
                                     <!-- Include the Google Places API script -->
                                     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script>
-                                    <div class="form-group" style="margin-left: 15px; margin-right: 15px">
-                                        <label for="placeFound">Place Found:</label>
-                                        <input type="text" class="form-control places-autocomplete" id="autocomplete" placeholder="Enter place found" required>
-                                    </div>
                                     <div class="form-group" style="margin-left: 10px; margin-right: 10px">
                                         <label for="description">Description:</label>
                                         <textarea class="form-control" id="description" rows="3" placeholder="Enter item description" required></textarea>
@@ -294,7 +290,9 @@
                         var placeFound = placeName;
                         //var placeFound = document.getElementById("autocomplete").value;
                         var description = document.getElementById("description").value;
-                        var imageUpload = document.getElementById("imageUpload").value;
+                        var imageUpload = document.getElementById("imageUpload")
+                        var imageUpload = document.getElementById("imageUpload");
+                        var imageUrl = document.getElementById("imagePreview").src;         
 
                         // Create HTML for the new product card
                         var newProductCard = document.createElement("div");
@@ -311,7 +309,9 @@
                                             <div class="h6 font-weight-bold">${placeFound}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <img src="${imageUpload}" style="height: 5vw; width: 5vw;">
+                                            <img src="${imageUpload}" style="height: 5vw; width: 5vw;" onchange="previewImage()">
+                                            <img id="imagePreview" style="max-width: 100%; max-height: 100px; margin-top: 10px;" />
+
                                         </div>
                                         <button type="button" id = "myBtn" class="btn btn-primary" style="width: 8vw; height: 2.5vw; margin-top: 0.55vw;">Contact </button>
                                         
@@ -380,7 +380,8 @@
                     </script>
                                     <div class="form-group" style="margin-left: 10px; margin-right: 10px">
                                         <label for="imageUpload">Image Upload:</label>
-                                        <input type="file" class="form-control-file" id="imageUpload" required>
+                                        <input type="file" id="imageUpload" accept="image/*" onchange="previewImage()">
+                                        <img id="imagePreview" style="max-width: 100%; max-height: 100px; margin-top: 10px;" />
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
@@ -388,6 +389,22 @@
                         </li>
 
                         </li>
+                        <script>
+                            function previewImage() {
+                                var input = document.getElementById('imageUpload');
+                                var preview = document.getElementById('imagePreview');
+                        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+                        
+                                    reader.onload = function (e) {
+                                        preview.src = e.target.result;
+                                    };
+                        
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                            }
+                        </script>
             
                         <div class="topbar-divider d-none d-sm-block"></div>
 
